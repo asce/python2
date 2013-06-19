@@ -1,0 +1,5 @@
+import MySQLdb 
+
+Conexion = MySQLdb.connect(host='localhost', user='conan',passwd='crom', db='DBdeConan')
+
+Conexion.commit()
