@@ -14,10 +14,3 @@ class DamePostItem(Item):
     category_list = Field()
     tag_list = Field()
 
-"""
-    Título.
-Autor.
-Contenido.
-Lista de categorías.
-Lista de etiquetas
-"""
