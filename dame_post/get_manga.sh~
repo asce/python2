@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ "$#" -eq 1 ]; then  
-    scrapy crawl my_spider -a start_url=$1
-else
-    echo "Num args. incorrecto. Uso $0 <mangahere_serie_url>"
-
