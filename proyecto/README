@@ -11,8 +11,12 @@ El proyecto consta de dos partes:
 
    Descarga el último capitulo de una serie manga de la página mangahere.
    Para esto debemos pasarle la url de los caps de la serie.
-   Ejemplo: ./get_manga.sh 'http://www.mangahere.com/manga/naruto/'
+   Ejemplo: ./get_manga.py 'http://www.mangahere.com/manga/naruto/'
 
+   NOTA: get_manga.py nos permite lanzar 'scrapy crawl' de una forma mas sencilla
+   y desde cualquier ubicación, ya que antes de ejecutar el comando cambia al directorio
+   donde se encuentra el proyecto scrapy 
+   
 
 
 Combinando estas dos herramientas podremos planificar la descarga automática 
