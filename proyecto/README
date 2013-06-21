@@ -1,0 +1,19 @@
+El proyecto consta de dos partes:
+
+1. Interfaz amigable para el planificador Cron
+
+   Planifica una tarea para un día de la semana.
+   Para que funcione debe arrancar cron al inicio
+   Controla que no haya tareas repetidas, aunque las lancemos cambiando
+   el orden entre argumentos.
+
+2. Manga Scraper
+
+   Descarga el último capitulo de una serie manga de la página mangahere.
+   Para esto debemos pasarle la url de los caps de la serie.
+   Ejemplo: ./get_manga.sh 'http://www.mangahere.com/manga/naruto/'
+
+
+
+Combinando estas dos herramientas podremos planificar la descarga automática 
+de nuestra/as serie/es favorita/as =).

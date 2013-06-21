@@ -1,0 +1,37 @@
+# This package will contain the spiders of your Scrapy project
+#
+# Please refer to the documentation for information on how to create and manage
+# your spiders.
+
+from scrapy.contrib.spiders import CrawlSpider, Rule
+from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
+from scrapy.selector import HtmlXPathSelector
+from scrapy.item import Item
+from manga_scraper.items import MangaScraperItem
+from scrapy.http import Request
+
+class MySpider(CrawlSpider):
+
+    name = 'mangahere_spider'
+    #def __init__(self, *args, **kwargs):                                            #super(CrawlSpider, self).__init__(*args, **kwargs)
+    allowed_domains = ['mangahere.com']
+    #chapter_url = 'http://www.mangahere.com/manga/naruto/v63/c635/'
+    #start_urls = [chapter_url]
+    rules = (Rule(SgmlLinkExtractor(allow=('naruto/v\d+/c\d+/\d+\.html')), follow = True ,callback='parse_manga'),)
+
+    def __init__(self, *args, **kwargs):
+        super(MySpider, self).__init__(*args, **kwargs)
+#self.allowed_domains = ["mangahere.com"]
+        s_url = kwargs.get('start_url')
+        if(not not s_url):
+            self.parse_main_manga_page(s_url)
+            self.start_urls = [kwargs.get('start_url')] 
+
+    def parse_manga(self,response):
+        self.log(' \n\nURL: %s \n\n' % response.url)
+
+    def parse_main_manga_page(self, main_manga_url):
+        print "\n\n\n\n\n\n\n\n",Request(main_manga_url),"\n\n\n\n\n\n"
+
+
+      #rules = (Rule(SgmlLinkExtractor(allow=('v\d+/c\d+/(\d+\.html)?')), follow = True ,callback='parse_manga'),)
