@@ -12,7 +12,11 @@ import MySQLdb
 import os
 import re
 
+import os
+import sys
 
+full_path = sys.argv[0]
+dir_path = os.path.dirname(full_path)
 
 class Crud_GUI:
     
@@ -22,7 +26,7 @@ class Crud_GUI:
         self.DAY_OF_WEEK = 2
         self.COMMAND = 3
         self.builder = Gtk.Builder()
-        self.builder.add_from_file("cron_gtk.glade")
+        self.builder.add_from_file(os.path.join(dir_path,"cron_gtk.glade"))
         self.handlers = {"on_combobox1_changed":self.on_combobox1_changed,
                          "onDeleteWindow":self.onDeleteWindow,
                          "onHelpMenu":self.onHelpMenu,
@@ -156,7 +160,7 @@ class Crud_GUI:
 
         for t in tasks_elems:
             if myTask_elem[0]==t[0]:
-                if (not myTask_elem[1] and not myTask_elem[1]): 
+                if (not myTask_elem[1] and not t[1]): 
                     return True #si encuentro mismo comando sin args
                 if len(myTask_elem[1])==len(t[1]): #igual num de args
                     for t_arg in myTask_elem[1]: #compruebo todos los args
@@ -182,8 +186,9 @@ class Crud_GUI:
         return None
 
     def __cleanCronTasks(self,cronTasksStr):
-        tasksCleaned = re.sub("^\s*(\S\s+){5}", "", cronTasksStr,0,re.MULTILINE)
+        tasksCleaned = re.sub("^\s*(\S+\s+){5}", "", cronTasksStr,0,re.MULTILINE)
         tasksArray = re.split("\n",tasksCleaned)
+        print "\n\n\n\n",tasksArray,"\n\n\n\n"
         return tasksArray
 
 

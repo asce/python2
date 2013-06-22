@@ -16,5 +16,5 @@ if(len(sys.argv) == 2):
 
 elif(len(sys.argv) == 1):
     print "Num args. incorrecto. Uso %s <mangahere_serie_url>" % full_path
-    print "Ejemplo: %s 'http://www.mangahere.com/manga/naruto/'" % full_path
+    print "Ejemplo: %s http://www.mangahere.com/manga/naruto/" % full_path
 
