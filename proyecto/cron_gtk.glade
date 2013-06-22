@@ -26,6 +26,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 MA 02110-1301, USA.</property>
     <property name="authors">davidasce &lt;asce88@gmail.com&gt;
 </property>
+    <signal name="close" handler="onCloseAbout" swapped="no"/>
+    <signal name="response" handler="onCloseAbout" swapped="no"/>
     <child internal-child="vbox">
       <object class="GtkBox" id="aboutdialog-vbox1">
         <property name="can_focus">False</property>
